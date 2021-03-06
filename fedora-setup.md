@@ -34,7 +34,6 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 
 
-* TODO: Should learn how to use SELinux instead of disabling it
 * etckeeper The etckeeper init command initialises an /etc/.git/ repository
 
   ```text
@@ -331,7 +330,7 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
     * sudo dnf check-update
   * sudo dnf install -y blackfire-agent blackfire-php
   * Configure the **local agent** with your **personnal server credentials**:
-    * sudo blackfire-agent --register --server-id=69dab0f7-75cf-4fc1-bf98-50a1a417bc67 --server-token=d0bfb5ba2ed8059bf4f4c886d2431400b2184dfa8b43e77a5d9c028157ff6f96
+    * sudo blackfire-agent --register --server-id=&lt;SERVER ID&gt; --server-token=&lt;SERVER TOKEN&gt;
   * sudo /etc/init.d/blackfire-agent start
   * sudo systemctl restart blackfire-agent nginx php-fpm
   * 
@@ -369,7 +368,6 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
   * export IS\_SINGLE\_SITE=false
   * wp plugin install wp-seo-qtranslate-x acf-qtranslate toolbar-publish-button kint-debugger acf-content-analysis-for-yoast-seo amazon-s3-and-cloudfront duplicate-post wordpress-seo classic-editor classic-editor-addon --activate-network --url=awswp.localhost
   * bash ~/Github/CurtisBelt/dotfiles/scripts/git-repos.sh
-  * bash ~/Github/TRIBUS/stamford/scripts/s3/pull.sh
   * Permissions
     * nginx and php-fpm should be configured to run by `curtis`
     * sudo find ~/WordPress/ -type d -exec chmod 755 {} \;
@@ -377,9 +375,6 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
     * sudo chmod -R 775 ~/WordPress/wp-content
     * sudo find /efs -type d -exec chmod 775 {} \;
     * sudo chmod -R 775 /efs
-* [https://app.crossbrowsertesting.com/test-center](https://app.crossbrowsertesting.com/test-center)
-  * yarn global add cbt\_tunnels
-  * cbt\_tunnels --username [dev@tribusgroup.com](mailto:dev@tribusgroup.com) --authkey u1804812cafb79a0
 * Increase inotify limit -- Specifically Gitkrakken would hit a limit, but this applies to everything using inotify such as webpack, grunt, VSCode -anything watch files for changes.
   * echo fs.inotify.max\_user\_watches=524288 \| sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
 * Enable weekly fstrim \(this will be turned on by default in Fedora 32\)
@@ -418,13 +413,6 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
   sudo dnf install -y spotify-client
   ```
 
-* * * Stamford
-  * ln -s ~/Github/TRIBUS/stamford/wordpress ~/WordPress/wp-content/themes/stamford
-  * cd ~/Github/TRIBUS/stamford/nuxt
-  * yarn install
-  * yarn dev
-  * aws configure
-  * stamford-pull
 * Troubleshooting
   * GUI for Users and Groups
     * sudo dnf install -y system-config-users
@@ -433,11 +421,10 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
   * GUI for dconf database
     * sudo dnf install -y dconf-editor
 * Gnome Extensions
+
   * Just use the chrome extension to install these, it works fine.
   * [https://extensions.gnome.org/extension/545/hide-top-bar/](https://extensions.gnome.org/extension/545/hide-top-bar/)
-  * [https://extensions.gnome.org/extension/1723/wintile-windows-10-window-tiling-for-gnome/](https://extensions.gnome.org/extension/1723/wintile-windows-10-window-tiling-for-gnome/)
-  * [https://extensions.gnome.org/extension/771/proxy-switcher/](https://extensions.gnome.org/extension/771/proxy-switcher/)
-  * * make schemas
+
 * Open Broadcaster Software \(OBS\) Project
   * sudo dnf install -y [https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-32.noarch.rpm](https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-32.noarch.rpm) [https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-32.noarch.rpm](https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-32.noarch.rpm)
   * sudo dnf install -y obs-studio
