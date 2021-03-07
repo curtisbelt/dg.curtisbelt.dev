@@ -1,9 +1,5 @@
 # Prepare Fresh Install
 
-To Do:
-
-* [ ] Learn how to use SELinux instead of disabling it.
-
 ### Download & Install OS
 
 [https://getfedora.org/en/workstation/download/](https://getfedora.org/en/workstation/download/)
