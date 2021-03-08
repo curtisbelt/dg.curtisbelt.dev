@@ -53,45 +53,51 @@ sudo dnf install -y \
 
 
 
+### NVM / Node.js
+
+
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+# Close all terminals and re-open. If still not working, reboot.
+nvm install --lts
+```
+
+{% embed url="https://github.com/nvm-sh/nvm\#install--update-script" %}
+
+### Yarn
+
+```bash
+curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+sudo dnf install -y yarn
+```
+
+### Dropbox
+
+Get latest download link from [https://www.dropbox.com/install-linux](https://www.dropbox.com/install-linux).
+
+```bash
+wget https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2020.03.04-1.fedora.x86_64.rpm -O ~/Downloads/dropbox.fedora.rpm
+sudo dnf install -y ~/Downloads/dropbox.fedora.rpm
+```
+
+Open Dropbox, follow prompt that will install the daemon. Once complete you will be prompted to log in to Dropbox
+
+### SSH Keys
+
+```text
+mkdir ~/.ssh
+sudo chmod 700 ~/.ssh
+# Copy keys from Bitwarden ("SSH Keys")
+# chmod private keys to 600, public keys to 644
+sudo chmod 600 ~/.ssh/2018.07.curtisbelt
+sudo chmod 644 ~/.ssh/2018.07.curtisbelt.pub
+ssh-add ~/.ssh/2018.07.curtisbelt
+```
+
 {% hint style="danger" %}
 **Below this point: working on fixing formatting**
 {% endhint %}
-
-
-
-* NVM
-  * Check for latest scriopt version: [https://github.com/nvm-sh/nvm/blob/master/README.md\#install-script](https://github.com/nvm-sh/nvm/blob/master/README.md#install-script)
-  * mkdir ~/.nvm
-  * curl -o- [https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh](https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh) \| bash
-  * Close all terminals and re-open. If still not working, reboot.
-  * nvm install 12
-* Yarn
-  * curl --silent --location [https://dl.yarnpkg.com/rpm/yarn.repo](https://dl.yarnpkg.com/rpm/yarn.repo) \| sudo tee /etc/yum.repos.d/yarn.repo
-  * sudo dnf install -y yarn
-  * OLD
-    * curl -o- -L [https://yarnpkg.com/install.sh](https://yarnpkg.com/install.sh) \| bash
-    * Add to exports.zsh
-      * export PATH="$PATH:`yarn global bin`"
-* Dropbox
-  * Get latest download link from [https://www.dropbox.com/install-linux](https://www.dropbox.com/install-linux)
-  * wget [https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2020.03.04-1.fedora.x86\_64.rpm](https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2020.03.04-1.fedora.x86_64.rpm) -O ~/Downloads/dropbox.fedora.rpm
-  * sudo dnf install -y ~/Downloads/dropbox.fedora.rpm
-  * Open Dropbox, follow prompt that will install the daemon. Once complete you will be prompted to log in to Dropbox
-* SSH Keys
-
-  * FEDORA 33:
-    * See [https://www.reddit.com/r/Fedora/comments/jh9iyi/f33\_openssh\_no\_mutual\_signature\_algorithm/](https://www.reddit.com/r/Fedora/comments/jh9iyi/f33_openssh_no_mutual_signature_algorithm/)
-    * `sudo update-crypto-policies --set DEFAULT:FEDORA32`
-    * or don't if you fix it in ~/.ssh/config per host
-
-  ```text
-  mkdir ~/.ssh
-  sudo chmod 700 ~/.ssh
-  Copy keys from Dropbox, chmod private keys to 600, public keys to 644
-  sudo chmod 600 ~/.ssh/2018.07.curtisbelt
-  sudo chmod 644 ~/.ssh/2018.07.curtisbelt.pub
-  ssh-add ~/.ssh/2018.07.curtisbelt
-  ```
 
 * Oh My ZSH
 
