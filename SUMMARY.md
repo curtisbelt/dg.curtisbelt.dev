@@ -12,4 +12,5 @@
 ---
 
 * [To Do](to-do.md)
+* [Reshaping JSON with jq](reshaping-json-with-jq.md)
 
