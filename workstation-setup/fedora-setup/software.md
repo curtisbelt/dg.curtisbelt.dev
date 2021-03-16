@@ -15,8 +15,36 @@ sudo dnf install -y google-chrome-stable
 ### Nemo
 
 ```text
-sudo dnf install -y nemo nemo-fileroller nemo-preview nemo-compare
-xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
+sudo dnf install -y \
+ nemo \
+ nemo-fileroller \
+ nemo-preview \
+ nemo-compare
+
+xdg-mime default nemo.desktop \
+ inode/directory \
+ application/bzip2 \
+ application/gzip \
+ application/x-7z-compressed \
+ application/x-7z-compressed-tar \
+ application/x-bzip \
+ application/x-bzip-compressed-tar \
+ application/x-compress \
+ application/x-compressed-tar \
+ application/x-cpio \
+ application/x-gnome-saved-search \
+ application/x-gzip \
+ application/x-lha \
+ application/x-lzip \
+ application/x-lzip-compressed-tar \
+ application/x-lzma \
+ application/x-lzma-compressed-tar \
+ application/x-tar \
+ application/x-tarz \
+ application/x-xar \
+ application/x-xz \
+ application/x-xz-compressed-tar \
+ application/zip
 ```
 
 ### Utilities
@@ -39,6 +67,7 @@ sudo dnf install -y \
   jq \
   lsyncd \
   meld \
+  util-linux-user \
   nano \
   parallel \
   pavucontrol \
@@ -47,19 +76,15 @@ sudo dnf install -y \
   remmina \
   ShellCheck \
   svn \
-  tilix \
-  util-linux-user
+  tilix
 ```
-
-
 
 ### NVM / Node.js
 
-
-
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-# Close all terminals and re-open. If still not working, reboot.
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r '.tag_name')/install.sh | bash
+
+# First restart your terminal or you'll get "bash: nvm: command not found..."
 nvm install --lts
 ```
 
@@ -95,34 +120,31 @@ sudo chmod 644 ~/.ssh/2018.07.curtisbelt.pub
 ssh-add ~/.ssh/2018.07.curtisbelt
 ```
 
+### Oh My ZSH
+
+```text
+sudo dnf -y install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+* Reboot computer
+* Warning: If you already cloned in your dotfiles and ran `make`, you'll want to `sudo rm -R ~/.oh-my-zsh`, install, then go run `make` again. Or just don't setup your dotfiles until after installing oh-my-zsh.
+
 {% hint style="danger" %}
 **Below this point: working on fixing formatting**
 {% endhint %}
 
-* Oh My ZSH
+```text
+Dotfiles
+```
 
-  ```text
-  sudo dnf -y install zsh
-  ```
-
-  * Reboot computer
-  * Warning: If you already cloned in your dotfiles and ran `make`, you'll want to `sudo rm -R ~/.oh-my-zsh`, install, then go run `make` again. Or just don't setup your dotfiles until after installing oh-my-zsh.
-
-  ```text
-  sh -c "$(wget <https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh> -O -)"
-  sudo chsh -s /bin/zsh
-  ```
-
-* Dotfiles
-
-  ```text
+* ```text
   mkdir -p ~/code/github.com/curtisbelt/dotfiles
   git clone git@github.com:curtisbelt/dotfiles.git ~/code/github.com/curtisbelt/dotfiles
   cd ~/code/github.com/curtisbelt/dotfiles
   make
   sudo chown 600 ~/code/github.com/curtisbelt/dotfiles/home/.ssh/config
   ```
-
 * Software Installers available after dotfiles
 
   ```text
