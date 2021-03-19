@@ -56,6 +56,7 @@ xdg-mime default nemo.desktop \
 * qt5-qtsvg required for flameshot's icons to work \(since Fedora 30\)
 * Remmina: remote desktop software
 * ShellCheck is shell code analysis tool, gives great tips, kind of like linting
+* gcc-c++ \(C/C++ compiler toolchain\)
 
 ```text
 sudo dnf install -y \
@@ -76,7 +77,8 @@ sudo dnf install -y \
   remmina \
   ShellCheck \
   svn \
-  tilix
+  tilix \
+  gcc-c++
 ```
 
 ### NVM / Node.js
