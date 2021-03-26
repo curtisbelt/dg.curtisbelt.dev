@@ -136,6 +136,18 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 **Below this point: working on fixing formatting**
 {% endhint %}
 
+### Memcached
+
+```text
+sudo dnf install -y memcached
+sudo systemctl enable memcached.service
+sudo systemctl start memcached.service
+```
+
+
+
+
+
 ```text
 Dotfiles
 ```
