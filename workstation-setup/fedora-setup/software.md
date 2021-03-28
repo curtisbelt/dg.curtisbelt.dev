@@ -509,6 +509,14 @@ Dotfiles
   * cd /tmp
   * wget --trust-server-names [https://go.skype.com/skypeforlinux-64.rpm](https://go.skype.com/skypeforlinux-64.rpm)
   * sudo dnf install -y /tmp/skypeforlinux-64.rpm
+
+### VirtualBox
+
+```text
+curl --silent --location https://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo | sudo tee /etc/yum.repos.d/virtualbox.repo
+sudo dnf install -y VirtualBox
+```
+
 * Varying Vagrant Vagrants
   * Vagrant + Virtualbox
     * cd /etc/yum.repos.d/
