@@ -110,6 +110,13 @@ sudo dnf install -y ~/Downloads/dropbox.fedora.rpm
 
 Open Dropbox, follow prompt that will install the daemon. Once complete you will be prompted to log in to Dropbox
 
+### Github CLI
+
+```text
+sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+sudo dnf install -y gh
+```
+
 ### SSH Keys
 
 ```text
