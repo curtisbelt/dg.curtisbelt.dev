@@ -292,7 +292,7 @@ Dotfiles
 
 ### NVIDIA
 
-Dependancy: [RPM Fusion](https://app.gitbook.com/@curtisbelt/s/digital-garden/~/drafts/-M_m39nd3Scr6W_CZTCI/workstation-setup/fedora-setup/software#rpm-fusion)
+Install \[RPM Fusion\]\(\#rpm-fusion\) first.
 
 ```text
 modinfo -F version nvidia
