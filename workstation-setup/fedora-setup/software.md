@@ -1,5 +1,18 @@
 # Software
 
+### RPM Fusion
+
+See: [https://rpmfusion.org/Configuration/](https://rpmfusion.org/Configuration/)
+
+```text
+sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf upgrade --refresh
+sudo dnf groupupdate core
+sudo dnf install -y rpmfusion-free-release-tainted
+sudo dnf install -y dnf-plugins-core
+```
+
 ### Google Chrome
 
 ```text
@@ -104,7 +117,7 @@ sudo dnf install -y yarn
 Get latest download link from [https://www.dropbox.com/install-linux](https://www.dropbox.com/install-linux).
 
 ```bash
-wget https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2020.03.04-1.fedora.x86_64.rpm -O ~/Downloads/dropbox.fedora.rpm
+wget https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2020.03.04-1.fedora.x86_64.rpm -O ~/Downloads/dropbox.fedora.rpmwget https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2020.03.04-1.fedora.x86_64.rpm -O ~/Downloads/dropbox.fedora.rpmwget https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2020.03.04-1.fedora.x86_64.rpm -O ~/Downloads/dropbox.fedora.rpm
 sudo dnf install -y ~/Downloads/dropbox.fedora.rpm
 ```
 
@@ -276,13 +289,21 @@ Dotfiles
   * gsettings set org.gnome.desktop.interface menubar-detachable false
   * gsettings set org.gnome.desktop.interface monospace-font-name 'Dank Mono 11'
   * gsettings set org.gnome.desktop.interface toolbar-icons-size 'small'
-* NVIDIA \(**ONLY IF YOU HAVE NVIDIA CARD**\)
 
-  ```text
-  sudo dnf install -y <https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-33.noarch.rpm> <https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-33.noarch.rpm>
-  sudo dnf update -y
-  sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda vdpauinfo libva-vdpau-driver libva-utils
-  ```
+### NVIDIA
+
+Dependancy: [RPM Fusion](https://app.gitbook.com/@curtisbelt/s/digital-garden/~/drafts/-M_m39nd3Scr6W_CZTCI/workstation-setup/fedora-setup/software#rpm-fusion)
+
+```text
+modinfo -F version nvidia
+sudo dnf update -y # and reboot if you are not on the latest kernel
+sudo dnf install -y akmod-nvidia
+sudo dnf install -y xorg-x11-drv-nvidia-cuda
+sudo dnf install -y xorg-x11-drv-nvidia-cuda-libs
+sudo dnf install -y vdpauinfo libva-vdpau-driver libva-utils
+sudo dnf install -y vulkan
+modinfo -F version nvidia
+```
 
 * Papirus Icon Theme
   * sudo dnf install -y papirus-icon-theme
