@@ -25,6 +25,25 @@ sudo dnf install -y google-chrome-stable
  For self-signed SSH to work locally, enable: `chrome://flags/#allow-insecure-localhost`
 {% endhint %}
 
+### Firefox
+
+```text
+  cd /tmp
+  curl --location "https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US" | tar --extract --verbose --preserve-permissions --bzip2
+  sudo mv ./firefox /opt/firefox
+  sudo ln -sf /opt/firefox/firefox /usr/bin/firefox
+```
+
+#### user.js - Firefox Configuration
+
+```text
+user_pref('gfx.xrender.enabled', true);
+user_pref('layers.acceleration.force-enabled', false);
+user_pref('layers.force-active', false);
+
+user_pref('browser.urlbar.trimURLs', false);
+```
+
 ### Nemo
 
 ```text
@@ -292,7 +311,7 @@ Dotfiles
 
 ### NVIDIA
 
-Install \[RPM Fusion\]\(\#rpm-fusion\) first.
+Dependancy: [RPM Fusion](software.md#rpm-fusion)
 
 ```text
 modinfo -F version nvidia
