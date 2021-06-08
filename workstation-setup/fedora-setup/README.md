@@ -1,2 +1,2 @@
-# Fedora Setup
+# Fedora 34 Setup
 
